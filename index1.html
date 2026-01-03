@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Art Tour | Progress Jesutomiwa Giwa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Enhanced Responsive Styles */
+        :root {
+            --eco-green: #2a7d2e;
+            --ocean-blue: #2c5aa0;
+            --recycle-yellow: #f2c94c;
+            --earth-brown: #8d6e63;
+            --clean-white: #f8f9fa;
+            --dark-text: #2d3436;
+            --lagos-orange: #e67e22;
+            --menu-bg: rgba(255, 255, 255, 0.98);
+            --mobile-breakpoint: 768px;
+            --tablet-breakpoint: 992px;
+            --desktop-breakpoint: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--clean-white);
+            color: var(--dark-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-width: 320px;
+        }
+
+        /* Fluid Container System */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+
+        /* Project Header with Responsive Background */
+        .project-hero {
+            background: linear-gradient(rgba(42, 125, 46, 0.9), rgba(44, 90, 160, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                background-attachment: scroll;
+                padding: 80px 0 40px;
+                min-height: 90vh;
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            width: 100%;
+        }
+
+        /* Responsive Typography */
+        .project-hero h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .project-hero .tagline {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            max-width: 90%;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* COMPLETE HAMBURGER MENU STYLES */
+        .project-nav {
+            background-color: var(--menu-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-logo {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 800;
+            color: var(--eco-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        /* HAMBURGER MENU BUTTON */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--eco-green);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        /* NAVIGATION MENU */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(90%, 400px);
+                height: 100vh;
+                background-color: var(--menu-bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                padding: 80px 20px;
+                z-index: 999;
+                gap: 15px;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+        }
+
+        .nav-menu li {
+            flex-shrink: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 20px);
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu a {
+                padding: 18px 30px;
+                font-size: 1.1rem;
+                border-radius: 10px;
+                background-color: rgba(42, 125, 46, 0.05);
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+                white-space: normal;
+            }
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--eco-green);
+            background-color: rgba(42, 125, 46, 0.08);
+        }
+
+        .nav-menu a.active {
+            box-shadow: 0 4px 12px rgba(42, 125, 46, 0.15);
+        }
+
+        /* MENU OVERLAY */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Grid Systems */
+        .youth-stats,
+        .achievements-grid,
+        .activities-grid,
+        .gallery-grid,
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 576px) {
+            .youth-stats,
+            .achievements-grid,
+            .activities-grid,
+            .gallery-grid,
+            .impact-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* SDG Tags Responsive Layout */
+        .sdg-tags {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        @media (max-width: 768px) {
+            .sdg-tags {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sdg-tags {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sdg-tag {
+            background-color: rgba(255,255,255,0.9);
+            color: var(--eco-green);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-height: 60px;
+            word-break: break-word;
+        }
+
+        /* Responsive Sections */
+        .section {
+            padding: clamp(60px, 10vw, 100px) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--eco-green);
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin-bottom: clamp(30px, 6vw, 60px);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out 0.2s;
+            line-height: 1.3;
+            padding: 0 10px;
+            word-wrap: break-word;
+        }
+
+        /* Responsive Cards */
+        .stat-card,
+        .achievement-card,
+        .activity-card,
+        .partner-card,
+        .city-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            min-height: 200px;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 25px;
+        }
+
+        .stat-card:hover,
+        .achievement-card:hover,
+        .activity-card:hover,
+        .partner-card:hover,
+        .city-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Responsive Card Content */
+        .stat-number {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: var(--eco-green);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+        }
+
+        /* Activity Cards */
+        .activity-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .activity-icon {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: var(--eco-green);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Gallery Responsive */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* CTA Buttons Responsive */
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 576px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: clamp(12px, 3vw, 16px) clamp(20px, 5vw, 40px);
+            background-color: white;
+            color: var(--eco-green);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(42, 125, 46, 0.2);
+            transform: translateY(0);
+            text-align: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+                white-space: normal;
+            }
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--eco-green);
+            color: var(--eco-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--eco-green);
+            color: white;
+        }
+
+        /* Media Links Responsive */
+        .media-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .media-link {
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            background-color: var(--eco-green);
+            color: white;
+        }
+
+        .media-link:hover {
+            background-color: var(--ocean-blue);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .media-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .media-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Impact Stats Responsive */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .impact-number {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--eco-green);
+            margin-bottom: 10px;
+        }
+
+        /* Footer Responsive */
+        .project-footer {
+            background-color: var(--dark-text);
+            color: white;
+            padding: clamp(40px, 8vw, 80px) 0 clamp(20px, 4vw, 40px);
+            text-align: center;
+            clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        @media (max-width: 768px) {
+            .project-footer {
+                clip-path: polygon(0 3%, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+
+        /* Back to Top Button Responsive */
+        .back-to-top {
+            position: fixed;
+            bottom: clamp(20px, 5vw, 30px);
+            right: clamp(20px, 5vw, 30px);
+            width: clamp(45px, 8vw, 50px);
+            height: clamp(45px, 8vw, 50px);
+            background-color: var(--eco-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(42, 125, 46, 0.3);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--ocean-blue);
+            transform: translateY(-5px);
+        }
+
+        /* Overview Content Responsive */
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .overview-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .overview-text {
+            text-align: left;
+        }
+
+        .overview-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .overview-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(42, 125, 46, 0.1), rgba(44, 90, 160, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border-left: 5px solid var(--eco-green);
+        }
+
+        /* Youth Powered Badge */
+        .youth-powered-badge {
+            display: inline-block;
+            background-color: var(--recycle-yellow);
+            color: var(--dark-text);
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 30px);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: bounceIn 1s ease-out 0.6s both;
+            transform-origin: center;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--eco-green), var(--ocean-blue));
+            z-index: 1002;
+            transition: width 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.visible .section-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: clamp(60px, 15vw, 80px);
+            height: 4px;
+            background-color: var(--recycle-yellow);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.8s ease-out 0.5s;
+        }
+
+        .section.visible .section-title:after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .section.visible .stat-card,
+        .section.visible .achievement-card,
+        .section.visible .activity-card,
+        .section.visible .partner-card,
+        .section.visible .city-card {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered animations for grid items */
+        .youth-stats .stat-card:nth-child(1) { transition-delay: 0.1s; }
+        .youth-stats .stat-card:nth-child(2) { transition-delay: 0.2s; }
+        .youth-stats .stat-card:nth-child(3) { transition-delay: 0.3s; }
+
+        .achievements-grid .achievement-card:nth-child(1) { transition-delay: 0.1s; }
+        .achievements-grid .achievement-card:nth-child(2) { transition-delay: 0.2s; }
+        .achievements-grid .achievement-card:nth-child(3) { transition-delay: 0.3s; }
+        .achievements-grid .achievement-card:nth-child(4) { transition-delay: 0.4s; }
+
+        .gallery-item {
+            opacity: 0;
+            transform: scale(0.9) rotateY(10deg);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .section.visible .gallery-item {
+            opacity: 1;
+            transform: scale(1) rotateY(0);
+        }
+
+        .gallery-item:nth-child(1) { transition-delay: 0.1s; }
+        .gallery-item:nth-child(2) { transition-delay: 0.2s; }
+        .gallery-item:nth-child(3) { transition-delay: 0.3s; }
+        .gallery-item:nth-child(4) { transition-delay: 0.4s; }
+
+        /* Ripple effect for buttons */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Animated Navigation with Hamburger Menu -->
+    <nav class="project-nav" id="mainNav">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-recycle"></i>
+                <span>Recycle</span>ArtTour
+            </a>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="#youth"><i class="fas fa-users"></i> Youth & Artists</a></li>
+                <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+                <li><a href="#city"><i class="fas fa-city"></i> City Collaboration</a></li>
+                <li><a href="#activities"><i class="fas fa-paint-brush"></i> Activities</a></li>
+                <li><a href="#impact"><i class="fas fa-chart-line"></i> Impact</a></li>
+                <li><a href="#cta"><i class="fas fa-handshake"></i> Get Involved</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Recycle Art Tour</h1>
+                <p class="tagline">Transforming waste into wonder through creative environmental education</p>
+                <div class="youth-powered-badge">
+                    <i class="fas fa-users"></i> Youth-Led, Youth-Driven, Youth-Powered
+                </div>
+                <div class="sdg-tags">
+                    <div class="sdg-tag"><i class="fas fa-graduation-cap"></i> Quality Education</div>
+                    <div class="sdg-tag"><i class="fas fa-leaf"></i> Climate Action</div>
+                    <div class="sdg-tag"><i class="fas fa-recycle"></i> Responsible Consumption</div>
+                    <div class="sdg-tag"><i class="fas fa-hands-helping"></i> No Poverty</div>
+                    <div class="sdg-tag"><i class="fas fa-utensils"></i> Zero Hunger</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-content"> 
+                <div class="overview-text">
+                    <p>The <strong>Recycle Art Tour</strong> is an environmental awareness initiative that creatively combines art and sustainability to promote responsible waste management.</p>
+                    <p>This innovative tour uses art as a powerful tool to communicate the dangers of pollution, inspire behavioral change, and empower young people with creative recycling skills.</p>
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-bullseye"></i> Mission</h3>
+                        <p>To foster environmental consciousness through creative expression, transforming waste materials into artistic treasures while building sustainable communities through youth empowerment.</p>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="img/C40_104@-1327723459.jpg" alt="Recycle Art Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Youth & Artists Section -->
+    <section id="youth" class="section youth-section">
+        <div class="container">
+            <h2 class="section-title">Youth & Artist Network</h2>
+            
+            <div class="youth-empowerment">
+                <h3>Youth Involvement</h3>
+                <p>The project engages a growing network of youth people and partners, including:</p>
+            </div>
+            
+            <div class="youth-stats">
+                <div class="stat-card">
+                    <div class="stat-number">18-30</div>
+                    <div class="stat-label">Youth Volunteers</div>
+                    <p>Active young volunteers supporting planning, coordination, and workshop facilitation</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Youth Groups</div>
+                    <p>Youth groups and school clubs, such as Environmental Voice International and community advocates supporting the outreach.</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Young Mentees</div>
+                    <p>Emerging artists trained through the program who now contribute to its expansion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section achievements-section">
+        <div class="container">
+            <h2 class="section-title">Project Achievements</h2>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-content">
+                        <h3><i class="fas fa-school"></i> School & Community Activations</h3>
+                        <p>Some of the noble accomplishments include:</p>
+                        <p>Successfully teaching hundreds of children and youths how to recycle creatively.</p>
+                        <a href="https://drive.google.com/drive/folders/1JLomciA-H7G62WAK2q0EnEsQdP75avRg" target="_blank" class="achievement-link">
+                            <i class="fas fa-external-link-alt"></i> View Gallery
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-content">
+                        <h3><i class="fas fa-palette"></i> Recycled Artworks Production</h3>
+                        <p>Creation of numerous artworks entirely from discarded nylon wraps.</p>
+                        <a href="https://drive.google.com/drive/folders/1sqOaEp5Um4ND-fLXZWcggWHqckhsWTxr" target="_blank" class="achievement-link">
+                            <i class="fas fa-external-link-alt"></i> View Collection
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-content">
+                        <h3><i class="fas fa-handshake"></i> Strategic Partnerships</h3>
+                        <p>Building collaborations with NGOs and creative organizations.</p>
+                        <a href="https://drive.google.com/drive/folders/1KXD-PKoVEEz11JhmTI67G9LXD363kxkx" target="_blank" class="achievement-link">
+                            <i class="fas fa-external-link-alt"></i> View Partnerships
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-content">
+                        <h3><i class="fas fa-briefcase"></i> "Backpack of Hope" Initiative</h3>
+                        <p>Providing eco-friendly school bags made from recycled materials.</p>
+                        <a href="https://drive.google.com/drive/folders/1nQHb8UCma2DSY93Xe1q7ZcXTkJpNaS_a" target="_blank" class="achievement-link">
+                            <i class="fas fa-external-link-alt"></i> View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-links">
+                <a href="https://www.instagram.com/reel/DN3Oqg8WKfw/?igsh=MTYwZmY4cWh1eWkxdA==" target="_blank" class="media-link instagram">
+                    <i class="fab fa-instagram"></i> TVC Interview
+                </a>
+                <a href="https://punchng.com/before-stardom-with-progress-jesutomiwa-giwa/" target="_blank" class="media-link news">
+                    <i class="fas fa-newspaper"></i> Punch Feature
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Collaboration Section -->
+    <section id="city" class="section city-section">
+        <div class="container">
+            <h2 class="section-title">City Collaboration</h2>
+            
+            <div class="city-highlight">
+                <h3><i class="fas fa-city"></i> Partnering with Lagos, Nigeria</h3>
+                <p>Building a greener, more creative, and sustainability-conscious city through art and education.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="section">
+        <div class="container">
+            <h2 class="section-title">Tour Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>School Workshops</h3>
+                        <p>Interactive sessions teaching creative recycling techniques using plastics and nylon waste.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Community Exhibitions</h3>
+                        <p>Public displays of artworks created from recycled materials.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Clean-Up Events</h3>
+                        <p>Community clean-ups followed by creative workshops.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Youth Training</h3>
+                        <p>Capacity building in environmental advocacy and entrepreneurship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="School Workshop">
+                    <div class="gallery-overlay">
+                        <h4>School Workshop Session</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Art Exhibition">
+                    <div class="gallery-overlay">
+                        <h4>Community Art Exhibition</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1476&q=80" alt="Recycled Art">
+                    <div class="gallery-overlay">
+                        <h4>Art from Recycled Materials</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Youth Volunteers">
+                    <div class="gallery-overlay">
+                        <h4>Youth Volunteer Team</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section">
+        <div class="container">
+            <h2 class="section-title">Impact & SDG Alignment</h2>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="impact-number">500+</div>
+                    <div class="impact-desc">Students Engaged</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-number">1,000+</div>
+                    <div class="impact-desc">Community Members</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-number">2 Tons</div>
+                    <div class="impact-desc">Waste Diverted</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="impact-number">50+</div>
+                    <div class="impact-desc">Youths Trained</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="section cta-section">
+        <div class="container">
+            <h2 class="section-title">Join the Recycle Art Movement</h2>
+            <p style="max-width: 90%; margin: 0 auto 30px; font-size: clamp(1rem, 2vw, 1.2rem); text-align: center;">
+                Be part of transforming waste into wonder through art and sustainability.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">Schedule a Workshop</a>
+                <a href="#contact" class="btn btn-outline">Become a Volunteer</a>
+                <a href="#contact" class="btn btn-outline">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="project-footer">
+        <div class="container">
+            <div class="back-to-portfolio">
+                <a href="portfolio.html"><i class="fas fa-arrow-left"></i> Back to Progress Jesutomiwa Giwa's Portfolio</a>
+            </div>
+            
+            <p style="margin: 20px 0; font-size: clamp(0.9rem, 1.5vw, 1rem);">
+                An initiative by Progress Jesutomiwa Giwa | Youth Ambassador, Lagos State Ministry of Environment
+            </p>
+            
+            <div class="copyright">
+                <p style="font-size: clamp(0.8rem, 1.2vw, 0.9rem);">
+                    &copy; 2025 Recycle Art Tour. Building a greener, more creative Lagos.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu Elements
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const navMenu = document.getElementById('navMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const body = document.body;
+
+            // Toggle Menu Function
+            function toggleMenu() {
+                const isActive = hamburgerBtn.classList.contains('active');
+                
+                if (isActive) {
+                    // Close menu
+                    hamburgerBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    body.style.overflow = 'auto';
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Open menu
+                    hamburgerBtn.classList.add('active');
+                    navMenu.classList.add('active');
+                    menuOverlay.classList.add('active');
+                    body.style.overflow = 'hidden';
+                    hamburgerBtn.setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            // Close Menu Function
+            function closeMenu() {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                body.style.overflow = 'auto';
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            // Event Listeners
+            hamburgerBtn.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close menu on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && hamburgerBtn.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+
+            // Scroll Progress Indicator
+            const scrollProgress = document.getElementById('scrollProgress');
+            function updateScrollProgress() {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                scrollProgress.style.width = Math.min(scrolled, 100) + '%';
+            }
+            window.addEventListener('scroll', updateScrollProgress);
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            function toggleBackToTop() {
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', toggleBackToTop);
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Scroll Animation for Sections
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth Scrolling for Navigation Links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetSection = document.querySelector(targetId);
+                    if (!targetSection) return;
+                    
+                    // Update active link
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Calculate offset based on header height
+                    const headerHeight = document.getElementById('mainNav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                    
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Update active nav link on scroll
+            function updateActiveNavLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const headerHeight = document.getElementById('mainNav').offsetHeight;
+                    
+                    if (window.scrollY >= (sectionTop - headerHeight - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkId = link.getAttribute('href').substring(1);
+                    if (linkId === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Debounce scroll event for performance
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveNavLink, 100);
+            });
+
+            // Navbar background on scroll
+            const mainNav = document.getElementById('mainNav');
+            function updateNavbar() {
+                if (window.scrollY > 50) {
+                    mainNav.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
+                    mainNav.style.padding = '10px 0';
+                } else {
+                    mainNav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+                    mainNav.style.padding = '15px 0';
+                }
+            }
+            window.addEventListener('scroll', updateNavbar);
+
+            // Button ripple effect
+            const buttons = document.querySelectorAll('.btn, .achievement-link, .media-link');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if ('ontouchstart' in window) return;
+                    
+                    const x = e.clientX - e.target.getBoundingClientRect().left;
+                    const y = e.clientY - e.target.getBoundingClientRect().top;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Close menu when window is resized to desktop size
+            function handleResize() {
+                if (window.innerWidth > 992 && hamburgerBtn.classList.contains('active')) {
+                    closeMenu();
+                }
+            }
+
+            // Debounced resize handler
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(handleResize, 250);
+            });
+
+            // Initialize
+            updateScrollProgress();
+            toggleBackToTop();
+            updateNavbar();
+            updateActiveNavLink();
+
+            // Add aria labels for accessibility
+            hamburgerBtn.setAttribute('aria-label', 'Toggle navigation menu');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            hamburgerBtn.setAttribute('aria-controls', 'navMenu');
+        });
+    </script>
+</body>
+</html>
